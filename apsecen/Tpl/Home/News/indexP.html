@@ -1,0 +1,148 @@
+﻿<!DOCUTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="APEC, Sustainable, energy, center" />
+	<title>APEC Sustainable Energy Center</title>
+	<link rel="stylesheet"  href="__ROOT__/Public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/header-footer-style.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/about-style.css">
+	<script src="__ROOT__/Public/js/jquery.js"></script>
+</head>
+<body background="__ROOT__/Public/images/backpic.png">
+	
+		<div class="header">
+			<img class="logo" src="__ROOT__/Public/images/logo.png"/>
+			<div class="toolBox">
+				<div class="links">
+					<!--<a href="#">Login</a>
+					<a href="#">Register</a>-->
+					<a href="/"> 中文 |</a>
+					<div  class="clear"></div>
+				</div>
+				<!--<div class="searchBox">
+					<form>
+						<input type="text"  value="" class="btn searchInput"/>
+						<input type="submit"  value="search" class="btn submit search"/>
+					</form>
+				</div>-->
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="menu">
+			<div class="bg"></div>
+			<div class="menuBg">
+				<div class="menuBox">
+					<ul class="menuUl">
+												<li><a href="__APP__/">Home</a></li>
+						<li>
+							<a href="#">About us</a>
+							<div  class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=41">Introduction</a></li>
+									<li><a href="__APP__/Column/?cid=42">Background</a></li>
+									<li><a href="__APP__/Column/?cid=43">Milestones</a></li>
+									<!--<li><a href="__APP__/Column/?cid=44">Milestones</a></li>-->
+									<li><a href="__APP__/Column/?cid=45">Tasks</a></li>
+									<li><a href="__APP__/Column/?cid=46">Goals</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">Activities</a>
+							<div class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=51">Apec LCT Database</a></li>
+									<li><a href="__APP__/Column/?cid=61">APEC LCT Tour in China</a></li>
+                                    <li><a href="__APP__/Column/?cid=71">SPESS Project</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">Information Sharing</a>
+							<div class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=21">Intelligence Network</a></li>
+									<li><a href="__APP__/Column/?cid=22">Technologies</a></li>
+									<li><a href="__APP__/Column/?cid=23">Publications</a></li>
+									<li><a href="__APP__/Column/?cid=24">Brochure</a></li>
+									<li><a href="__APP__/Column/?cid=25">Submission</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">Contact us</a>
+							<div class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=31">Leave a Message</a>
+									<li><a href="__APP__/Column/?cid=32">Recruitment</a>
+									<li><a href="__APP__/Column/?cid=33">Contact Details</a>
+								</ul>
+							</div>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+			</div>
+		<div  class="clear"></div>
+		</div>
+
+		<div  class="main">
+
+			<!--sideNav Start -->
+			<div  class="sideNav">
+				<div  class="sideNavTit">
+					<h2>Navigator</h2>
+				</div>
+				<div  class="sideNavContent">
+					<ul>
+
+						<li><a onClick="showNews(51)" href="__APP__/Column/?cid=51#1">LCT Introduction</a></li><li><a onClick="showNews(52)" href="__APP__/Column/?cid=51#2">Apec LCT Database</a></li><li><a onClick="showNews(53)" href="javascript:void()">Major Project</a></li>
+
+					</ul>
+				</div>
+			</div><!--/end of sideNav-->
+
+			<!--Start main content-->
+			<div  class="content" style="font-size:15px;">
+				<div class="contentTit" >	
+					<h2>Major Project</h2>
+				</div>
+				<div class="rightw">
+					<div class="newsList" style="height:380px;">
+						<volist id="vo" name="news" >
+							<li><a href="__APP__/?m=News&a=readP&id={$vo.id}" target="_blank" style="">{$vo.title}</a><span class="newsTime" style="float:right;"></span></li>
+						</volist>
+					</div>
+				</div>
+				<div style="text-align:center;">{$page}</div>
+			</div>
+
+			<div  class="clear"></div>
+		</div>
+
+		<div class="footer">
+				<h5>Copyright©2014-2015APEC Sustainable energy center</h5>
+		</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// $(".subMenu").mouseover(function(){
+		// 	$(this).show();
+		// });
+		$(".menu .menuBg ul li").mouseover(function(){
+			$(this).find(".subMenu").show();
+		});
+		// $(".subMenu").mouseout(function(){
+		// 	$(this).hide();
+		// });
+		$(".menu .menuBg ul li").mouseout(function(){
+			$(this).find(".subMenu").hide();
+		});
+		$("#friendsTabs ul li").mouseover(function(){
+			$("#friendList"+$(this).attr("id")).show().siblings(".friendList").hide();
+			$(this).addClass("cur").siblings("li").removeClass("cur");
+		});
+	});
+</script>
+	</body>
+</html>

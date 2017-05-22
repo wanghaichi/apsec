@@ -1,0 +1,405 @@
+﻿.main{
+	width: 1089px;
+	margin: 10px auto;
+}
+.leftBar{
+	width: 260px;
+}
+.centerBar{
+	width: 525px;
+	margin-left: 20px;
+}
+.rightBar{
+	width: 260px;
+	margin-top: -10px;
+}
+.barBox{
+	width: 100%;
+}
+.barBox .barBoxTit{
+	height: 40px;
+	line-height: 35px;
+	border-bottom: 2px solid #8fcdcb;
+}
+.barBox .barBoxTit h2{
+	display: block;
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.barBox .barBoxTit h2 a,
+.barBox .barBoxTit h2 a:visited{
+	color: #19B1EC;
+}
+
+.barBox .barBoxTit .moreAbout{
+	display: inline-block;
+	float: right;
+	height: 40px;
+	padding:0 5px;
+	line-height: 40px;
+	color: #A3A3A3;
+}
+
+.barBox .barBoxTit .moreAbout a:hover{
+	color: #19B1EC;
+}
+/*
+a.moreAbout:link{
+	color:#727272;
+}
+
+a.moreAbout:visited{
+	color:#727272;
+}
+
+a.moreAbout:hover{
+	color:#19B1EC;
+}
+*/
+.barBox .barContent{
+	padding: 6px 0;
+	width: 100%;
+}
+
+.introduce img{
+	display: inline-block;
+	float: left;
+	height: 88px;
+	width: 127px;
+	padding:3px 7px 0 0 ;
+}
+.introduce p{
+	line-height: 1.8;
+}
+
+/*项目展示*/
+
+#showFocus .pic{
+	width: 100%;
+	height: 160px;
+}
+#showFocus .pic img{
+	width: 100%;
+	height: 100%;
+}
+#showFocus .num{
+	display: none;
+}
+
+/*活动通知*/
+.notice{
+	height: 166px;
+}
+.notice .noticeList{
+	color:  #333;
+}
+.notice .noticeList li,.news .newsList li,.source .sourceList li{
+	height: 25px;
+	line-height: 25px;
+}
+.notice .noticeList  a,.news .newsList a,.source .sourceList a{
+	line-height: 20px;
+	color:  #333;
+}
+.notice .noticeList li span,.news .newsList li span,.source .sourceList li span{
+	float: right;
+}
+
+/*中心动态*/
+.news .newsImportant img{
+	width: 200px;
+	height: 137px;
+	float: left;
+	padding-right: 10px; 
+}
+.news .newsImportant p{
+	color: #333;
+	line-height: 1.8em;
+}
+.news .newsImportant h5{
+	font-weight: 600;
+	font-size: 15px;
+	color:#333;
+}
+.news .newsImportant h5:hover{
+	color:#19B1EC;
+}
+
+.news .newsList{
+	padding-top: 6px;
+}
+
+
+/*全球资源*/
+.friends{
+	margin-top: 20px;
+}
+.source{
+	background: #8fcdcb;
+}
+
+.source.barBox .barBoxTit{
+	margin: 0px 10px;
+}
+.source .barBox .barBoxTit h2{
+	color:#FFF;
+}
+
+.source img{
+	width: 243px;
+	height: 136px;
+	margin: 0 8px;
+}
+.source .sourceList li{
+	padding: 0 10px;
+}
+
+/*FRIEND*/
+.friendsTabs .more {
+	float: right;
+	margin-right: 4px;
+	font-size: 10px;
+	color: #727272;
+}
+.friends .tab {
+	float: left;
+}
+.friends .tab li{
+	float: left;
+	display: inline;
+	padding: 3px 10px;
+	background-color: #b2e0f0;
+	color: white;
+	cursor: pointer;
+
+}
+.friends .tab .cur{
+	background-color: #09c;
+	box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-khtml-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+}
+.friends .friendList{
+	background-color: #b2e0f0;
+	border-top: 3px solid #8fcdcb;
+	width: 242px;
+	height: 150px;
+	padding: 10px;
+	overflow: hidden;
+}
+.friends .friendList img{
+	width: 240px;
+	height: 70px;
+}
+
+.friends .friendList ul{
+	line-height: 18px;
+}
+
+#friendFocus .num,#coreFocus .num{
+	display: none;
+}
+
+.friends .friendList a{
+	color: #09c;
+}
+
+.friends .friendList a:hover{
+	color: #FFF;
+}
+
+.friends .friendList a:visited{
+	color: #09c;
+}
+
+/*
+.title>a,.title>a:visited{
+	float: right;
+	margin-right: 4px;
+	font-size: 10px;
+	color: #727272;
+
+.middle,.bottom{
+	width: 1089px;
+	margin: 0 auto;
+}
+
+.middle{
+}
+
+.mLeft , .mMiddle ,.mRight{
+	padding-top: 10px;
+	height: 350px;
+	overflow: hidden;
+}
+
+.bLeft,.bMiddle,.bRight{
+
+}
+
+.bRight{
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+.bLeft,.bMiddle{
+	height: 230px;
+	overflow: hidden;
+}
+
+.mLeft , .bLeft{
+	width: 262px;
+	padding-right: 16px;
+}
+
+.mMiddle , .bMiddle{
+	width: 462px;
+	padding-right: 10px;
+}
+.mRight , .bRight{
+	width: 262px;
+}
+.mRight{
+	padding-top: 10px;
+	margin-top: 0px;
+	background-color: #8fcdcb;
+}
+.title{
+	border-bottom: 2px solid #8fcdcb;
+	padding:6px 0;
+}
+.title strong{
+	color: #09c;
+	font-size: 18px;
+	font-weight: 600;
+}
+.title>a,.title>a:visited{
+	float: right;
+	margin-right: 4px;
+	font-size: 10px;
+	color: #727272;
+}
+.content{
+	padding-top: 10px;
+}
+
+.introduce img{
+	display: inline;
+	float: left;
+	height: 88px;
+	width: 127px;
+	padding:3px 7px 0 0 ;
+}
+.introduce p{
+	text-indent:2em;
+	color: #333;
+	line-height: 2em;
+}
+
+.notice ul{
+	color:  #333;
+	list-style: url("images/point.png") inside none;
+}
+.noticeList  a{
+	line-height: 23px;
+	color:  #333;
+}
+
+.news img{
+	width: 200px;
+	height: 135px;
+	float: left;
+	padding-right: 10px; 
+}
+.news p{
+	color: #333;
+}
+.news h5{
+	font-weight: 600;
+	font-size: 15px;
+}
+.resource .title{
+	border-bottom: 4px solid #ddd;
+}
+.resource img{
+	width: 240px;
+	height: 160px;
+	margin: 0 10px;
+}
+
+.resource ul{
+	margin-left: 10px;
+	color:  #333;
+	list-style: url("images/point.png") inside none;
+}
+.resource ul li a{
+	line-height: 23px;
+	color:  #333;
+}
+
+.resource ul li span{
+	float: right;
+	padding-right: 10px;
+}
+
+.show img,#myFocus{
+	width: 260px;
+	height: 160px;
+}
+
+.newsList ul{
+	color:  #333;
+	list-style: url("images/point.png") inside none;
+}
+.newsList ul li span{
+	float: right;
+}
+
+.friendsTabs .more {
+	float: right;
+	margin-right: 4px;
+	font-size: 10px;
+	color: #727272;
+}
+.friends .tab {
+	float: left;
+}
+.friends .tab li{
+	float: left;
+	display: inline;
+	padding: 3px 10px;
+	background-color: #b2e0f0;
+	color: white;
+	cursor: pointer;
+
+}
+.friends .tab .cur{
+	background-color: #09c;
+	box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-khtml-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+}
+.friends .friendList{
+	background-color: #b2e0f0;
+	border-top: 3px solid #8fcdcb;
+	width: 242px;
+	height: 150px;
+	padding: 10px;
+	overflow: hidden;
+}
+.friends .friendList img{
+	width: 118px;
+	height: 70px;
+}
+
+.friends .friendList ul{
+	line-height: 22px;
+}
+
+
+*/

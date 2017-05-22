@@ -1,0 +1,152 @@
+﻿<!DOCUTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="APEC，可持续，能源，中心，智库" />
+	<title>亚太经合组织可持续能源中心</title>
+	<link rel="stylesheet"  href="__ROOT__/Public/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/header-footer-style.css">
+	<link rel="stylesheet" type="text/css" href="__ROOT__/Public/css/about-style.css">
+	<script src="__ROOT__/Public/js/jquery.js"></script>
+</head>
+<body background="__ROOT__/Public/images/backpic.png">
+	
+		<div class="header">
+			<img class="logo" src="__ROOT__/Public/images/logo.png"/>
+			<div class="toolBox">
+				<div class="links">
+					<!--<a href="#">登录</a>
+					<a href="#">注册</a>-->
+					<a href="__ROOT__/apsecen"> English |</a>
+					<div  class="clear"></div>
+				</div>
+				<!--<div class="searchBox">
+					<form>
+						<input type="text"  value="" class="btn searchInput"/>
+						<input type="submit"  value="搜索" class="btn submit search"/>
+					</form>
+				</div>-->
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="menu">
+			<div class="bg"></div>
+			<div class="menuBg">
+				<div class="menuBox">
+					<ul class="menuUl">
+						<li><a href="__APP__/">首页</a></li>
+												<li>
+							<a href="#">关于我们</a>
+							<div  class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=41">中心简介</a></li>
+									<li><a href="__APP__/Column/?cid=42">筹建背景</a></li>
+									<li><a href="__APP__/Column/?cid=43">大事记</a></li>
+									<!--<li><a href="__APP__/Column/?cid=44">组织结构</a></li>-->
+									<li><a href="__APP__/Column/?cid=45">中心任务</a></li>
+									<li><a href="__APP__/Column/?cid=46">中心目标</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">项目活动</a>
+							<div class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=51">APEC低碳城镇推广活动</a></li>
+									<li><a href="__APP__/Column/?cid=61">APEC城镇中国行</a></li>
+                                    <li><a href="__APP__/Column/?cid=71">APESS项目</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">信息共享</a>
+							<div class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=21">智力网络</a></li>
+									<li><a href="__APP__/Column/?cid=22">能源技术</a></li>
+									<li><a href="__APP__/Column/?cid=23">成果出版</a></li>
+									<li><a href="__APP__/Column/?cid=24">中心手册</a></li>
+									<li><a href="__APP__/Column/?cid=25">投稿专栏</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">联系我们</a>
+							<div class="subMenu">
+								<ul>
+									<li><a href="__APP__/Column/?cid=31">建议留言</a>
+									<li><a href="__APP__/Column/?cid=32">招贤纳士</a>
+									<li><a href="__APP__/Column/?cid=33">联系方式</a>
+								</ul>
+							</div>
+						</li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+			</div>
+		<div  class="clear"></div>
+		</div>
+
+		<div  class="main">
+
+			<!--sideNav Start -->
+			<div  class="sideNav">
+				<div  class="sideNavTit">
+					<h2>栏目导航</h2>
+				</div>
+
+				<div  class="sideNavContent">
+					<ul>
+							
+							<ul><li><a onClick="showNews(51)" href="__APP__/Column/?cid=51#1">活动介绍</a></li><li><a onClick="showNews(52)" href="__APP__/Column/?cid=51#2">项目库</a></li><li><a onClick="showNews(53)" href="javascript:void()">重点项目推荐</a></li></ul>
+
+					</ul>
+				</div>
+			</div><!--/end of sideNav-->
+
+			<!--Start main content-->
+			<div  class="content" style="font-size:15px;">
+				<div class="contentTit"><h2>重点项目推荐</h2></div>
+
+				<div class="rightw">
+					<div class="newsList" style="height:380px;">
+						<volist id="vo" name="news" >
+							<li><a href="__APP__/?m=News&a=readP&id={$vo.id}" target="_blank" style="">{$vo.title}</a><span class="newsTime" style="float:right;"></span></li>
+						</volist>
+					</div>
+				</div>
+				<div style="text-align:center;">{$page}</div>
+			</div>
+
+				
+			</div>
+
+
+			<div  class="clear"></div>
+		</div>
+
+		<div class="footer">
+				<h5>Copyright©2014-2015APEC可持续能源中心</h5>
+		</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// $(".subMenu").mouseover(function(){
+		// 	$(this).show();
+		// });
+		$(".menu .menuBg ul li").mouseover(function(){
+			$(this).find(".subMenu").show();
+		});
+		// $(".subMenu").mouseout(function(){
+		// 	$(this).hide();
+		// });
+		$(".menu .menuBg ul li").mouseout(function(){
+			$(this).find(".subMenu").hide();
+		});
+		$("#friendsTabs ul li").mouseover(function(){
+			$("#friendList"+$(this).attr("id")).show().siblings(".friendList").hide();
+			$(this).addClass("cur").siblings("li").removeClass("cur");
+		});
+	});
+</script>
+	</body>
+</html>

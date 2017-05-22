@@ -1,0 +1,287 @@
+﻿
+
+<div id="tab" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+
+
+    <div title="未审核新闻" closable="true" style="padding:10px;">
+
+        <table id="t0" style="width:auto;height:auto" fit="true"></table>
+
+    </div>
+
+    <div title="中部新闻" closable="true" style="padding:10px;">
+
+        <table id="t1" style="width:auto;height:auto" fit="true"></table>
+
+    </div>
+
+    <div title="滚动头条" closable="true" style="padding:10px;">
+
+        <table id="t2" style="width:auto;height:auto" fit="true"></table>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+
+var title_args = 
+
+        {field:'title', title:'标题', width:80, align:'center', halign:'center'};
+
+var author_args = 
+
+		{field:'a', title:'作者', width:80, formatter:formatAuthor, align:'center', halign:'center'};
+
+var content_args = 
+
+		{field:'c', title:'内容', width:560, formatter:formatContent, align:'center', halign:'center'};
+
+var pic_args = 
+
+        {field:'pic', title:'图片', width:80, formatter:formatPic, align:'center', halign:'center'};
+
+var seq_args = 
+
+        {field:'sequence', title:'顺序', width:80, formatter:formatSeq, align:'center', halign:'center'};
+
+var show_args = 
+
+		{field:'s', title:'展示', width:80, formatter:formatShow, align:'center', halign:'center'};
+var edit_args = 
+
+        {field:'e', title:'编辑', width:80, formatter:formatEdit, align:'center', halign:'center'};
+
+var ban_args = 
+
+		{field:'b', title:'禁用', width:80, formatter:formatBan, align:'center', halign:'center'};
+
+var del_args = 
+
+		{field:'d', title:'删除', width:80, formatter:formatDel, align:'center', halign:'center'};
+
+
+
+var news = new Array();
+
+for (var i = 0 ; i < 3 ; i++){
+
+    news[i] = {
+
+        url : '/tuanwei/index.php?g=Manager&m=News&a=newsList&position=' + (i),
+
+        rownumbers : true,
+
+        pagination : true, 
+
+        fitColumns : true,
+
+        onLoadSuccess : formatSuccess
+
+    };
+}
+
+
+
+
+
+news[0].columns =  [[pic_args,title_args, author_args,  seq_args, edit_args, del_args]];
+
+news[1].columns =  [[pic_args,title_args, author_args,  seq_args,edit_args, del_args]];
+
+news[2].columns =  [[pic_args,title_args, author_args,  seq_args,edit_args, del_args]];
+
+
+
+
+
+
+for (var i = 0 ; i < 3 ; i++){
+
+    $('#t' + i).datagrid(news[i]);
+
+}
+
+
+function formatPic(val, row){
+
+	var url = '/Public/Images/tuanwei/uploads/' + row.picUrl;
+
+    return '<img src="' + url + '" width="50px"/>';
+
+}
+
+function formatAuthor(val, row){
+
+    return row.author;
+
+}
+
+function formatContent(val, row){
+
+
+
+        return  row.content ; 
+
+}
+
+function formatSeq(val, row){
+
+    return row.sequence;
+
+}
+
+function formatShow(val, row){
+
+    return '<a href="javascript:void(0)" class="show_link_button" iconCls="icon-add" plain="true" onclick="handle(this, ' + row.id + ', 1)">展示</a>';
+
+}
+
+function formatBan(val, row){
+
+    return '<a href="javascript:void(0)" class="ban_link_button" iconCls="icon-add" plain="true" onclick="handle(this, ' + row.id + ', 0)">禁用</a>';
+
+}
+
+function formatDel(val, row){
+
+    return '<a href="javascript:void(0)" class="del_link_button" iconCls="icon-add" plain="true" onclick="del(this, ' + row.id + ')">删除</a>';
+
+}
+function formatEdit(val, row){
+
+    return '<a href="javascript:void(0)" class="edit_link_button" iconCls="icon-add" plain="true" onclick="edit(' + row.id + ')">编辑</a>';
+}
+
+
+function formatSuccess(){
+
+	$(".show_link_button").linkbutton({text:'展示', plain:true, iconCls:'icon-add'});
+
+	$(".ban_link_button").linkbutton({text:'禁用', plain:true, iconCls:'icon-remove'});
+
+	$(".del_link_button").linkbutton({text:'删除', plain:true, iconCls:'icon-cancel'});
+
+}
+
+
+
+function handle(td, id, status){
+
+	var url = '/tuanwei/index.php?g=Manager&m=News&a=changestatus';
+
+	var args = {
+
+		'id' : id,
+
+		'position' : status
+
+	};
+
+	$.post(url, args, function(result){
+
+        if (result > 0){
+
+        	$(td).parentsUntil('tr').parent().html("<td colspan='3'>该项已经被转移到其它目录下面了~</td>");
+
+        } else {
+
+            $.messager.show({
+
+                title: 'Error',
+
+                msg: '出现了错误，操作未成功'
+
+            });
+
+        }
+
+    });
+
+}
+
+
+
+function del(td, id){
+
+	var url = '/tuanwei/index.php?g=Manager&m=News&a=delete';
+
+	var args = {
+
+		'id' : id
+
+	};
+
+	$.post(url, args, function(result){
+
+        if (result > 0){
+
+        	$(td).parentsUntil('tr').parent().html("<td colspan='3'>该项已经被删除了~</td>");
+
+        } else {
+
+            $.messager.show({
+
+                title: 'Error',
+
+                msg: '出现了错误，操作未成功'
+
+            });
+
+        }
+
+    });
+
+}
+
+function edit(id){
+
+    window.open("/tuanwei/index.php?g=Manager&m=News&a=edit&id="+id);
+
+}
+
+
+/*$('#tab').tabs({
+
+    onSelect:function(title, index){
+
+    	var seq = index + 1;
+
+        images[index].url = '/tuanwei/index.php?g=Manager&m=Imgwall&a=walllist&enable=' + seq;
+
+        $('#t' + seq).datagrid(images[index]);
+
+    }
+
+}); */
+
+
+
+function replaceQQFace(content){
+
+    var qq = ["/::)", "/::~", "/::B", "/::|", "/:8-)", "/::<", "/::$", "/::X", "/::Z", "/::'(", "/::-|", "/::@", "/::P", "/::D", "/::O", "/::(", "/::+", "/:--b", "/::Q", "/::T", "/:,@P", "/:,@-D", "/::d", "/:,@o", "/::g", "/:|-)", "/::!", "/::L", "/::>", "/::,@", "/:,@f", "/::-S", "/:?", "/:,@x", "/:,@@", "/::8", "/:,@!", "/:!!!", "/:xx", "/:bye", "/:wipe", "/:dig", "/:handclap", "/:&-(", "/:B-)", "/:<@", "/:@>", "/::-O", "/:>-|", "/:P-(", "/::'|", "/:X-)", "/::*", "/:@x", "/:8*", "/:pd", "/:<W>", "/:beer", "/:basketb", "/:oo", "/:coffee", "/:eat", "/:pig", "/:rose", "/:fade", "/:showlove", "/:heart", "/:break", "/:cake", "/:li", "/:bome", "/:kn", "/:footb", "/:ladybug", "/:shit", "/:moon", "/:sun", "/:gift", "/:hug", "/:strong", "/:weak", "/:share", "/:v", "/:@)", "/:jj", "/:@@", "/:bad", "/:lvu", "/:no", "/:ok", "/:love", "/:<L>", "/:jump", "/:shake", "/:<O>", "/:circle", "/:kotow", "/:turn", "/:skip", "/:oY", "/:#-0", "/:hiphot", "/:kiss", "/:<&", "/:&>"];
+
+    for (var i = 0; i < qq.length; i++)
+
+    {
+
+        for(var j = 0; j < content.length / 4; j++)
+
+        {
+
+            content = content.replace(qq[i], '<img src="http://res.mail.qq.com/zh_CN/images/mo/DEFAULT2/' + i + '.gif">');
+
+        }
+
+    }
+
+    return content;
+
+}
+
+</script>
+

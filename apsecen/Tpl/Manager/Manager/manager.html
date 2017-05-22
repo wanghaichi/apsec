@@ -1,0 +1,59 @@
+<js href="__ROOT__/Public/Js/plugins/jquery.edatagrid.js"/>
+
+<table id="dg" title="管理员列表" style="width:auto;"
+
+        toolbar="#toolbar" idField="id" fit="true" pagination="true" 
+
+        rownumbers="true" fitColumns="true" singleSelect="true">
+
+    <thead>
+
+        <tr>
+
+            <th field="mid" width="50" editor="{type:'validatebox',options:{required:true}}">ID</th>
+
+            <th field="realname" width="50" editor="{type:'validatebox',options:{required:true}}">真实姓名</th>
+
+            <th field="snum" width="50" editor="{type:'validatebox',options:{required:true}}">学号</th>
+
+            <th field="username" width="50" editor="{type:'validatebox',options:{required:true}}">账号</th>
+
+            <th field="password" width="50" editor="{type:'validatebox',options:{required:true}}">密码</th>
+
+            <th field="level" width="50" editor="{type:'validatebox',options:{required:true}}">权限</th>
+
+        </tr>
+
+    </thead>
+
+</table>
+
+<div id="toolbar">
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">添加</a>
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">删除</a>
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">保存</a>
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">取消</a>
+
+</div>
+
+<script>
+
+$('#dg').edatagrid({
+
+    url: '/tuanwei/index.php?g=Manager&m=Manager&a=get_manager',
+
+    saveUrl: '/tuanwei/index.php?g=Manager&m=Manager&a=save_manager',
+
+    updateUrl: '/tuanwei/index.php?g=Manager&m=Manager&a=update_manager',
+
+    destroyUrl: '/tuanwei/index.php?g=Manager&m=Manager&a=del_manager'
+
+});
+
+
+
+</script>

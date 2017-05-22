@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<title>天津大学apsec</title>
+
+	<css href="__ROOT__/Public/js/themes/default/easyui.css"/>
+
+	<css href="__ROOT__/Public/js/themes/icon.css"/>
+
+	<css href="__ROOT__/Public/css/demo.css"/>
+
+	<js href="__ROOT__/Public/js/jquery.min.js"/>
+
+	<js href="__ROOT__/Public/js/jquery.easyui.min.js"/>
+
+</head>
+
+<body>
+
+	<div class="easyui-layout center">
+
+		<div data-options="region:'north'" style="height:50px"></div>
+
+		<div data-options="region:'south',split:true" style="height:50px;"></div>
+
+		<div data-options="region:'east',split:true" title="East" style="width:180px;">
+
+		</div>
+
+		<div data-options="region:'west',split:true" title="管理面板" style="width:150px;">
+
+			<div class="easyui-accordion" data-options="fit:true,border:false">
+
+				<div title="菜单栏" <if condition="$mo eq 'Msgwall'">data-options="selected:true" </if>style="padding:10px;">
+
+					<ul>
+						<li><a href="__APP__/?g=Manager&mo=News&ac=showColumns" class="easyui-linkbutton" iconCls="icon-ok" plain="true">栏目信息管理</a></li>
+						<li><a href="__APP__/?g=Manager&mo=News&ac=showNews" class="easyui-linkbutton" iconCls="icon-ok" plain="true">新闻管理</a></li>
+						<li><a href="__APP__/?g=Manager&m=News&a=addNews" class="easyui-linkbutton" iconCls="icon-ok" plain="true">新增新闻</a></li>
+
+
+
+					</ul>
+
+				</div>
+
+				<div title="管理员管理" <if condition="$mo eq 'Vote'">data-options="selected:true" </if>style="padding:10px">
+
+					<ul>
+
+						<li><a href="__APP__/?g=Manager&mo=Manager&ac=manager" class="easyui-linkbutton" iconCls="icon-ok" plain="true">管理管理员</a></li>
+
+						<li><a href="__APP__/?g=Manager&m=Login&a=logout" class="easyui-linkbutton" iconCls="icon-ok" plain="true">登出</a></li>
+
+
+
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div data-options="region:'center',title:'信息展示',iconCls:'icon-ok'">
+
+			<include file="$includeurl"/>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

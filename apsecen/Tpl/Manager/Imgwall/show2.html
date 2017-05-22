@@ -1,0 +1,63 @@
+<js href="__ROOT__/Public/Js/plugins/jquery.edatagrid.js"/>
+<style>
+div img
+  {
+  max-height:100px;
+  max-width:100px;
+  }
+</style>
+
+<table id="dg" title="照片墙管理" style="width:auto;"
+
+        toolbar="#toolbar" idField="id" fit="true" pagination="true" 
+
+        rownumbers="true" fitColumns="true" singleSelect="true">
+
+    <thead>
+
+        <tr>
+            <th class="pic" field="msgid" width="50" editor="{type:'validatebox',options:{required:true}}">图片</th>
+
+            <th field="content" width="50" editor="{type:'validatebox',options:{required:true}}">描述</th>
+
+            <th field="author" width="50" editor="{type:'validatebox',options:{required:true}}">作者</th>
+
+            <th field="enable" width="50" editor="{type:'validatebox',options:{required:true}}">启用</th>
+
+            <th field="sequence" width="50" editor="{type:'validatebox',options:{required:true}}">顺序</th>
+        </tr>
+
+    </thead>
+
+</table>
+
+<div id="toolbar">
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">New</a>
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Destroy</a>
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Save</a>
+
+    <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancel</a>
+
+</div>
+
+<script>
+
+$('#dg').edatagrid({
+
+    url: '/tuanwei/index.php?g=Manager&m=Imgwall&a=imgList',
+
+    saveUrl: '/tuanwei/index.php?g=Manager&m=Imgwall&a=save',
+
+    updateUrl: '/tuanwei/index.php?g=Manager&m=Imgwall&a=update',
+
+    destroyUrl: '/tuanwei/index.php?g=Manager&m=Imgwall&a=del'
+
+});
+
+
+
+
+</script>

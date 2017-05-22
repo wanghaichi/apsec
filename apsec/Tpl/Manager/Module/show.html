@@ -1,0 +1,28 @@
+<js href="__ROOT__/Public/Js/plugins/jquery.edatagrid.js"/>
+<table id="dg" title="功能列表" style="width:auto;"
+        toolbar="#toolbar" idField="id" fit="true" pagination="true"
+        rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="name" width="50" editor="{type:'validatebox',options:{required:true}}">功能名称</th>
+            <th field="description" width="50" editor="{type:'validatebox',options:{required:true}}">功能描述</th>
+            <th field="sequence" width="50" editor="{type:'validatebox',options:{required:true}}">优先级</th>
+            <th field="enable" width="50" editor="{type:'validatebox',options:{required:true}}">是否开启</th>
+        </tr>
+    </thead>
+</table>
+<div id="toolbar">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">New</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Destroy</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Save</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancel</a>
+</div>
+<script>
+$('#dg').edatagrid({
+    url: '/wqtqw/index.php?g=Manager&m=Module&a=get',
+    saveUrl: '/wqtqw/index.php?g=Manager&m=Module&a=save',
+    updateUrl: '/wqtqw/index.php?g=Manager&m=Module&a=update',
+    destroyUrl: '/wqtqw/index.php?g=Manager&m=Module&a=del'
+});
+
+</script>

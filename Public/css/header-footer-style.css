@@ -1,0 +1,142 @@
+/*header style*/
+.header{
+	width: 1089px;
+	height: 120px;
+	margin:0 auto;
+}
+.header .logo{
+	display: inline;
+	width: 500px;
+	height: 110px;
+	padding-top: 10px;
+}
+.header .toolBox{
+	display: inline;
+	width: 263px;
+	float: right;
+	background-color: #8fcdcb;
+	height: 100%;
+}
+.header .toolBox .links{
+	margin-top:35px ;
+	margin-right: 16px;
+	font-size: 14px;
+	display: block;
+	color: white;
+}
+.header .toolBox .links a{
+	display: inline-block;
+	padding:0 5px;
+	height: 16px;
+	line-height: 16px;
+	float: right;
+	color: white;
+	margin-right: 3px;
+	border-left:1px solid #FFF;
+}
+.header .toolBox .searchBox{
+	width: 243px;
+	padding: 10px;
+}
+
+.header .btn{
+	height: 30px;
+	padding: 2px 5px;
+}
+
+.searchInput{
+	width: 180px;
+}
+
+
+
+/*menu style*/
+
+.menu{
+	margin: 0 auto;
+}
+.menu a{
+	font-size: 16px;
+	line-height: 16px;
+	color: white;
+	text-decoration: none;
+}
+.menu .bg{
+	width: 1129px;
+	height: 10px;
+	background-color:#ddd;
+	margin: 0 auto; 
+}
+.menu .menuBg{
+	width: 100%;
+	height: 38px;
+	background-color: #09c;
+}
+
+.menu .menuBg .menuBox{
+	margin: 0 auto;
+	width: 1089px;
+	height: 38px;
+	margin: 0 auto;
+	position: relative;
+}
+.menu .menuBg .menuBox > ul{
+	
+}
+.menu .menuBg .menuBox>ul li{
+	display: inline;
+	float: left;
+	padding: 11px 35px;
+
+}
+.menu .menuBg .menuBox>ul li:hover{
+	background-color: #57D2FB;
+}
+
+
+.menu .menuBg ul li .subMenu{
+	display: none;
+	z-index: 1;
+	position: absolute;
+	margin-left: -150px;
+	top: 38px;
+	background-color: #09c;
+	float: left;
+	box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-khtml-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,.3);
+}
+
+.menu .menuBg ul li .subMenu ul{
+	width: auto;
+}
+
+.menu .menuBg ul li .subMenu ul li{
+	background-color: #39BAE4;
+}
+.menu .menuBg ul li .subMenu ul li:hover{
+	background-color: #57D2FB;
+}
+.menu .menuBg ul li .subMenu ul li a{
+	font-size: 14px;
+	line-height: 14px;
+}
+
+
+
+/*footer style */
+
+.footer{
+	background-color: #09c;
+	height: 50px;
+}
+.footer h5{
+	line-height: 50px;
+	vertical-align: middle;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	font-weight: 600;
+}
