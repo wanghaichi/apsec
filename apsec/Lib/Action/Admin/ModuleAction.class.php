@@ -6,6 +6,7 @@
  * Time: 10:16
  */
 
+
 class ModuleAction extends Action {
     public function index(){
         $this->display('modulePage');
@@ -26,8 +27,20 @@ class ModuleAction extends Action {
         ];
         $pageName = $pageNameMap[$page];
         $modules = M('columns');
-        $list = $modules->where(['parent' => $page])->order('sequence desc, addtime desc')->select();
+        $numPerPage = 10;
+        $count = $modules->where(['parent' => $page])->order('sequence desc, addtime desc')->count();
+
+        import('ORG.Paging');
+        $paging = new Paging($count, $numPerPage, __APP__."/?g=Admin&m=Module&a=modulePage");
+        $show = $paging->show();
+        $list = $modules
+            ->where(['parent' => $page])
+            ->order('sequence desc, addtime desc')
+            ->limit($paging->firstRow, $paging->numPerPage)
+            ->select();
+
         $this->assign('pageName', $pageName);
+        $this->assign('show', $show);
         $this->assign('list', $list);
         $this->display();
     }
@@ -40,7 +53,6 @@ class ModuleAction extends Action {
             redirect(__APP__."/?g=Admin&m=Module&a=modulePage");
             exit;
         }
-
         $this->assign("module", $module);
 
         $this->display();
