@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="__PUBLIC__/admin/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="__PUBLIC__/admin/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="__PUBLIC__/admin/dist/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- bootstrap wysihtml5 - text editor -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="__PUBLIC__/Trumbowyg/dist/trumbowyg.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Trumbowyg/dist/trumbowyg.colors.min.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <include file="Tpl/Admin/header.html"/>
+    <include file="Tpl/Admin/menu.html"/>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                管理员控制
+                <small>更新管理员信息</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="__APP__/?g=Admin&m=User&a=index"><i class="fa fa-dashboard"></i>管理员控制</a></li>
+                <li class="active">更新管理员信息</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="__APP__/?g=Admin&m=User&a=update" method="post" role="form" onsubmit="check()">
+                    <div class="box box-info">
+
+                        <!-- /.box-header -->
+                        <div class="box-body pad">
+                            <div class="form-group">
+                                <label>真实姓名</label>
+                                <input type="text" class="form-control" name="realname" value="{$result.realname}"  disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>账号名称</label>
+                                <input type="text" class="form-control" name="username" value="{$result.username}"  disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">新密码</label>
+                                <input type="password" id="pwd1" name="password" class="form-control" id="exampleInputPassword1" placeholder="密码" required>
+                            </div>
+                            <div class="form-group" id="confirm_pwd">
+                                <label for="exampleInputPassword2"><i id="confirm_icon"></i> 确认密码</label>
+                                <input type="password" id="pwd2" name="re_password" class="form-control" id="exampleInputPassword2" placeholder="确认密码" onchange="validate()" required>
+                                <span class="help-block" id="hint">  </span>
+                            </div>
+                            <div class="form-group">
+                                <label>学号</label>
+                                <input type="text" class="form-control" name="snum" value="{$result.snum}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>权限</label>
+                                <input type="text" class="form-control" name="level" value="1" placeholder="1..." required>
+                            </div>
+                            <input type="hidden" name="mid" value="{$result.mid}">
+                            <!--<div class="form-group">-->
+                                <!--<label>栏目</label>-->
+                                <!--<select class="form-control" name="cid">-->
+                                    <!--<option value="90">活动通知</option>-->
+                                    <!--<option value="91">中心动态</option>-->
+                                    <!--<option value="92">全球资源</option>-->
+                                    <!--<option value="93">重点项目</option>-->
+                                    <!--<option value="94">案例介绍</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="box-footer">
+                            <button id="submit" type="submit" class="btn btn-primary">提交</button>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                    </form>
+                </div>
+                <!-- /.col-->
+            </div>
+            <!-- ./row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <include file="Tpl/Admin/footer.html"/>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="__PUBLIC__/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.6 -->
+<script src="__PUBLIC__/admin/bootstrap/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="__PUBLIC__/admin/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="__PUBLIC__/admin/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="__PUBLIC__/admin/dist/js/demo.js"></script>
+
+<script src="__PUBLIC__/Trumbowyg/dist/trumbowyg.bundled.js"></script>
+
+<!--判断密码-->
+<script language="javascript">
+    function validate() {
+        var pwd1 = $("#pwd1").val();
+        var pwd2 = $("#pwd2").val();
+        if(pwd1 == pwd2) {
+            $("#confirm_pwd").removeClass("has-error");
+            $("#confirm_icon").removeClass("fa fa-times-circle-o");
+            $("#confirm_pwd").addClass("has-success");
+            $("#confirm_icon").addClass("fa fa-check");
+            $("#hint").html("两次密码相同");
+            $("#submit").attr("disabled", false);
+        }
+        else {
+            $("#confirm_pwd").removeClass("has-success");
+            $("#confirm_icon").removeClass("fa fa-check");
+            $("#confirm_pwd").addClass("has-error");
+            $("#confirm_icon").addClass("fa fa-times-circle-o");
+            $("#hint").html("两次密码不相同");
+            $("#submit").attr("disabled",true);
+        }
+    }
+    function check(){
+        var pwd1 = $("#pwd1").val();
+        var pwd2 = $("#pwd2").val();
+        if(pwd1 == pwd2) {
+            $("#confirm_pwd").removeClass("has-error");
+            $("#confirm_icon").removeClass("fa fa-times-circle-o");
+            $("#confirm_pwd").addClass("has-success");
+            $("#confirm_icon").addClass("fa fa-check");
+            $("#hint").html("两次密码相同");
+            $("#submit").attr("disabled", false);
+            return true;
+        }
+        else {
+            $("#confirm_pwd").removeClass("has-success");
+            $("#confirm_icon").removeClass("fa fa-check");
+            $("#confirm_pwd").addClass("has-error");
+            $("#confirm_icon").addClass("fa fa-times-circle-o");
+            $("#hint").html("两次密码不相同");
+            $("#submit").attr("disabled",true);
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
