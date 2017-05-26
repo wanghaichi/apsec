@@ -26,4 +26,8 @@ class IndexAction extends Action {
         }
 
     }
+
+    public function indexPage(){
+        $this->display();
+    }
 }

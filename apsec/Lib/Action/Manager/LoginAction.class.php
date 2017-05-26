@@ -211,4 +211,8 @@ class LoginAction extends Action {
             $this->error('资料修改失败!');
         }
     }
+
+    public function loginPage(){
+        $this->display();
+    }
 }
