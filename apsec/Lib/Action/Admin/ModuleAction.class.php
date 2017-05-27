@@ -8,8 +8,14 @@
 
 
 class ModuleAction extends Action {
+    public function __construct()
+    {
+        parent::__construct();
+        if(!session(C('USER_AUTH_KEY')))
+            redirect(__APP__."/?g=Admin&m=Auth&a=loginPage");
+    }
     public function index(){
-        $this->display('modulePage');
+        redirect(__APP__."/?g=Admin&m=Module&a=modulePage");
     }
     public function modulePage(){
         $page = $this->_param('page');
@@ -27,7 +33,7 @@ class ModuleAction extends Action {
         ];
         $pageName = $pageNameMap[$page];
         $modules = M('columns');
-        $numPerPage = 10;
+        $numPerPage = 10 ;
         $count = $modules->where(['parent' => $page])->order('sequence desc, addtime desc')->count();
 
         import('ORG.Paging');
@@ -38,7 +44,6 @@ class ModuleAction extends Action {
             ->order('sequence desc, addtime desc')
             ->limit($paging->firstRow, $paging->numPerPage)
             ->select();
-
         $this->assign('pageName', $pageName);
         $this->assign('show', $show);
         $this->assign('list', $list);
@@ -54,7 +59,6 @@ class ModuleAction extends Action {
             exit;
         }
         $this->assign("module", $module);
-
         $this->display();
     }
 
@@ -78,5 +82,38 @@ class ModuleAction extends Action {
         else{
             $this->error("未知错误", __APP__."/?g=Admin&m=Module&a=modulePage&page=$parent");
         }
+    }
+
+    public function moduleAdd(){
+        $modules = M('columns');
+        $parents = M('colname');
+        $pid = intval($_POST['parent']);
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $parent = $parents->where(['id' => $pid])->find();
+        if($parent){
+            $pname = $parent['name'];
+            $cid = intval($parents->max('id'));
+            if($cid){
+                $cid++;
+                $parents->add(['id' => $cid, 'name' => $title]);
+                $map = [
+                    'parent'    =>  $pid,
+                    'cid'       =>  $cid,
+                    'cname'     =>  $pname,
+                    'name'      =>  $title,
+                    'content'   =>  $content,
+                    'sequence'  =>  0,
+                    'addtime'   =>  time()
+                ];
+                $modules->add($map);
+                echo "<script>alert(\"添加成功\");top.location='".__APP__."/?g=Admin&m=Module&a=modulePage';</script>";
+            }
+        }
+        echo "<script>alert(\"添加失败\");top.location='".__APP__."/?g=Admin&m=Module&a=moduleAddPage';</script>";
+        exit;
+    }
+    public function moduleAddPage(){
+        $this->display();
     }
 }

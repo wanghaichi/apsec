@@ -6,6 +6,12 @@
  * Time: 10:16
  */
 class UserAction extends Action {
+    public function __construct()
+    {
+        parent::__construct();
+        if(!session(C('USER_AUTH_KEY')))
+            redirect(__APP__."/?g=Admin&m=Auth&a=loginPage");
+    }
     public function index(){
         $result = D('Admin')->select();
         $this->assign('result', $result);
@@ -41,4 +47,5 @@ class UserAction extends Action {
         D('Admin')->where($map)->delete();
         echo "<script>alert(\"删除成功\");top.location='".__APP__."/?g=Admin&m=User&a=index';</script>";
     }
+
 }

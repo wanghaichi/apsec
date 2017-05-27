@@ -2,7 +2,9 @@
 return array(
 	//'配置项'=>'配置值'
 
-	'APP_GROUP_LIST' => 'Home,Manager', //项目分组设定，注意','后面全完不要有空格！！
+    'USER_AUTH_KEY' => 'apsec_admin_user',
+
+	'APP_GROUP_LIST' => 'Home,Admin', //项目分组设定，注意','后面全完不要有空格！！
 
 	'DEFAULT_GROUP'  => 'Home', //默认分组
 

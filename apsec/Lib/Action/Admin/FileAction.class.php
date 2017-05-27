@@ -7,6 +7,13 @@
  */
 
 class FileAction extends Action {
+    public function __construct()
+    {
+        parent::__construct();
+        if(!session(C('USER_AUTH_KEY')))
+            redirect(__APP__."/?g=Admin&m=Auth&a=loginPage");
+    }
+
     public function upload(){
         import('@.ORG.UploadFile');
         //导入上传类
